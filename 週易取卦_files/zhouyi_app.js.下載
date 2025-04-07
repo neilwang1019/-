@@ -1,0 +1,2523 @@
+//定義請求天機按銅板次數
+var firstgodtime = 0; 
+
+//定義本卦代號
+var bengua_1_value;
+var bengua_2_value;
+var bengua_3_value;
+var bengua_4_value;
+var bengua_5_value;
+var bengua_6_value;
+
+//定義本卦變數欄位代號
+var ben_biangua_1_value;
+var ben_biangua_2_value;
+var ben_biangua_3_value;
+var ben_biangua_4_value;
+var ben_biangua_5_value;
+var ben_biangua_6_value;
+		
+//定義之卦代號
+var zhigua_1_value;
+var zhigua_2_value;
+var zhigua_3_value;
+var zhigua_4_value;
+var zhigua_5_value;
+var zhigua_6_value;
+  
+//定義錯卦代號
+var cuogua_1_value;
+var cuogua_2_value;
+var cuogua_3_value;
+var cuogua_4_value;
+var cuogua_5_value;
+var cuogua_6_value;
+
+//六爻起卦介面
+function liuyao_set(){
+	document.getElementById('liuyao_set').style.display='';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('time_set').style.display='none';
+	document.getElementById('number_set').style.display='none';
+	document.getElementById('read_set').style.display='none';
+	document.getElementById('about_section').style.display='none';
+	document.getElementById('how_section').style.display='none';
+	document.getElementById('hero').style.height='0vh';
+	}
+//時辰起卦介面
+function time_set(){
+	document.getElementById('liuyao_set').style.display='none';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('time_set').style.display='';
+	document.getElementById('number_set').style.display='none';
+	document.getElementById('read_set').style.display='none';
+	document.getElementById('about_section').style.display='none';
+	document.getElementById('how_section').style.display='none';
+	document.getElementById('hero').style.height='0vh';
+	}	
+//物數起卦介面
+function number_set(){
+	document.getElementById('liuyao_set').style.display='none';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('time_set').style.display='none';
+	document.getElementById('number_set').style.display='';
+	document.getElementById('read_set').style.display='none';
+	document.getElementById('about_section').style.display='none';
+	document.getElementById('how_section').style.display='none';
+	document.getElementById('hero').style.height='0vh';
+	}	
+//閱讀文本介面
+function read_set(){
+	document.getElementById('liuyao_set').style.display='none';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('time_set').style.display='none';
+	document.getElementById('number_set').style.display='none';
+	document.getElementById('read_set').style.display='';
+	document.getElementById('about_section').style.display='none';
+	document.getElementById('how_section').style.display='none';
+	document.getElementById('hero').style.height='0vh';
+	}		
+//關於程序介面
+function about_set(){
+	document.getElementById('liuyao_set').style.display='none';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('time_set').style.display='none';
+	document.getElementById('number_set').style.display='none';
+	document.getElementById('read_set').style.display='none';
+	document.getElementById('about_section').style.display='';
+	document.getElementById('how_section').style.display='none';
+	document.getElementById('hero').style.height='0vh';
+	}		
+	
+//如何求六爻介面
+function how_set(){
+	document.getElementById('liuyao_set').style.display='none';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('time_set').style.display='none';
+	document.getElementById('number_set').style.display='none';
+	document.getElementById('read_set').style.display='none';
+	document.getElementById('about_section').style.display='none';
+	document.getElementById('how_section').style.display='';
+	document.getElementById('hero').style.height='0vh';
+	}	
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////六爻起卦程序組////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+//請求天機	
+function god(){
+	//定義四營之數（天機亂數）
+	var syzs_value = [6, 7, 7, 7, 7, 7, 8, 8, 8, 8, 8, 8, 8, 9, 9, 9];
+	const coin_audio = new Audio('assets/audio/coin.mp3'); //按銅板音效
+	var syzs_value_random_1 = Math.floor(Math.random() * syzs_value.length);
+	var syzs_value_random_2 = Math.floor(Math.random() * syzs_value.length);
+	var syzs_value_random_3 = Math.floor(Math.random() * syzs_value.length);
+	var syzs_value_random_4 = Math.floor(Math.random() * syzs_value.length);
+	var syzs_value_random_5 = Math.floor(Math.random() * syzs_value.length);
+	var syzs_value_random_6 = Math.floor(Math.random() * syzs_value.length);
+	var godtime = ++firstgodtime;
+	switch (godtime)
+	{
+		case 1:
+		coin_audio.play();
+		document.getElementById('yao1').value = syzs_value[syzs_value_random_1];
+		break;
+		case 2:
+		coin_audio.play();
+		document.getElementById('yao2').value = syzs_value[syzs_value_random_2];
+		break;
+		case 3:
+		coin_audio.play();
+		document.getElementById('yao3').value = syzs_value[syzs_value_random_3];
+		break;
+		case 4:
+		coin_audio.play();
+		document.getElementById('yao4').value = syzs_value[syzs_value_random_4];
+		break;
+		case 5:
+		coin_audio.play();
+		document.getElementById('yao5').value = syzs_value[syzs_value_random_5];
+		break;
+		case 6:
+		coin_audio.play();
+		document.getElementById('yao6').value = syzs_value[syzs_value_random_6];
+		break;
+		default:
+		alert ("已取六爻，請點擊「確認求卦」或「清空重填」。");
+		break;
+	};
+}
+
+//六爻相關運算
+function liuyao_function(){
+	var liuyao_form_reault = document.forms["liuyao_form"];
+	//驗證是否六次起爻都有填寫
+	if (Number(liuyao_form_reault.yao1.value) == 0)
+	{
+	alert('第一次起爻未填寫結果。');
+	return false;
+	}
+	else if (Number(liuyao_form_reault.yao2.value) == 0)
+	{
+	alert('第二次起爻未填寫結果。');
+	return false;
+	}
+	else if (Number(liuyao_form_reault.yao3.value) == 0)
+	{
+	alert('第三次起爻未填寫結果。');
+	return false;
+	}
+	else if (Number(liuyao_form_reault.yao4.value) == 0)
+	{
+	alert('第四次起爻未填寫結果。');
+	return false;
+	}
+	else if (Number(liuyao_form_reault.yao5.value) == 0)
+	{
+	alert('第五次起爻未填寫結果。');
+	return false;
+	}
+	else if (Number(liuyao_form_reault.yao6.value) == 0)
+	{
+	alert('第六次起爻未填寫結果。');
+	return false;
+	}
+	/*定義與顯示四營之數
+	var syzs = Number(liuyao_form_reault.yao1.value) + Number(liuyao_form_reault.yao2.value) + Number(liuyao_form_reault.yao3.value) + Number(liuyao_form_reault.yao4.value) + Number(liuyao_form_reault.yao5.value) + Number(liuyao_form_reault.yao6.value) ;
+	var xjjg_value = 55-Number(syzs);	
+	document.getElementById("syzs_1").innerHTML = (liuyao_form_reault.yao1.value);
+	document.getElementById("syzs_2").innerHTML = (liuyao_form_reault.yao2.value);
+	document.getElementById("syzs_3").innerHTML = (liuyao_form_reault.yao3.value);
+	document.getElementById("syzs_4").innerHTML = (liuyao_form_reault.yao4.value);
+	document.getElementById("syzs_5").innerHTML = (liuyao_form_reault.yao5.value);
+	document.getElementById("syzs_6").innerHTML = (liuyao_form_reault.yao6.value);
+	document.getElementById("syzs_value").innerHTML = (syzs);
+	document.getElementById("xjjg").innerHTML = (xjjg_value);*/
+	//決定是否顯示四營之數及變卦結果（六爻取卦專用）
+	//document.getElementById('syzs_info').style.display='';
+	document.getElementById('biangua').style.display='';
+	//document.getElementById('syzs_title').style.display='';
+	//document.getElementById('ybzy_title').style.display='';
+	
+	//顯示變與不變：初爻
+	if (Number(liuyao_form_reault.yao1.value) == 6)
+	{
+	document.getElementById("bian_1").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+	}
+	else if (Number(liuyao_form_reault.yao1.value) == 9)
+	{
+	document.getElementById("bian_1").innerHTML = ("<font color='#cda45e'>◯</font>");
+	}
+	else if (Number(liuyao_form_reault.yao1.value) == 7 | Number(liuyao_form_reault.yao1.value) == 8)
+	{
+	document.getElementById("bian_1").innerHTML = ("");
+	}
+		
+	//顯示變與不變：二爻
+	if (Number(liuyao_form_reault.yao2.value) == 6)
+	{
+	document.getElementById("bian_2").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+	}
+	else if (Number(liuyao_form_reault.yao2.value) == 9)
+	{
+	document.getElementById("bian_2").innerHTML = ("<font color='#cda45e'>◯</font>");
+	}
+	else if (Number(liuyao_form_reault.yao2.value) == 7 | Number(liuyao_form_reault.yao2.value) == 8)
+	{
+	document.getElementById("bian_2").innerHTML = ("");
+	}
+		
+	//顯示變與不變：三爻
+	if (Number(liuyao_form_reault.yao3.value) == 6)
+	{
+	document.getElementById("bian_3").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+	}
+	else if (Number(liuyao_form_reault.yao3.value) == 9)
+	{
+	document.getElementById("bian_3").innerHTML = ("<font color='#cda45e'>◯</font>");
+	}
+	else if (Number(liuyao_form_reault.yao3.value) == 7 | Number(liuyao_form_reault.yao3.value) == 8)
+	{
+	document.getElementById("bian_3").innerHTML = ("");
+	}
+		
+	//顯示變與不變：四爻
+	if (Number(liuyao_form_reault.yao4.value) == 6)
+	{
+	document.getElementById("bian_4").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+	}
+	else if (Number(liuyao_form_reault.yao4.value) == 9)
+	{
+	document.getElementById("bian_4").innerHTML = ("<font color='#cda45e'>◯</font>");
+	}
+	else if (Number(liuyao_form_reault.yao4.value) == 7 |Number(liuyao_form_reault.yao4.value) == 8)
+	{
+	document.getElementById("bian_4").innerHTML = ("");
+	}
+		
+	//顯示變與不變：五爻
+	if (Number(liuyao_form_reault.yao5.value) == 6)
+	{
+	document.getElementById("bian_5").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+	}
+	else if (Number(liuyao_form_reault.yao5.value) == 9)
+	{
+	document.getElementById("bian_5").innerHTML = ("<font color='#cda45e'>◯</font>");
+	}
+	else if (Number(liuyao_form_reault.yao5.value) == 7 | Number(liuyao_form_reault.yao5.value) == 8)
+	{
+	document.getElementById("bian_5").innerHTML = ("");
+	}
+		
+	//顯示變與不變：上爻
+	if (Number(liuyao_form_reault.yao6.value) == 6)
+	{
+	document.getElementById("bian_6").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+	}
+	else if (Number(liuyao_form_reault.yao6.value) == 9)
+	{
+	document.getElementById("bian_6").innerHTML = ("<font color='#cda45e'>◯</font>");
+	}
+	else if (Number(liuyao_form_reault.yao6.value) == 7 | Number(liuyao_form_reault.yao6.value) == 8)
+	{
+	document.getElementById("bian_6").innerHTML = ("");
+	}
+
+	//判斷本卦錯卦代號：初爻
+	if (liuyao_form_reault.yao1.value == 6 | liuyao_form_reault.yao1.value == 8)
+	  {
+	  bengua_1_value = 0;
+	  cuogua_1_value = 1;
+	  }
+	else 
+	  {
+	  bengua_1_value = 1;
+	  cuogua_1_value = 0;
+	  }
+	//判斷本卦錯卦代號：二爻
+	if (liuyao_form_reault.yao2.value == 6 | liuyao_form_reault.yao2.value == 8)
+	  {
+	   bengua_2_value = 0;
+	   cuogua_2_value = 1;
+	  }
+	else
+	  {
+	  bengua_2_value = 1;
+	  cuogua_2_value = 0;
+	  }
+	//判斷本卦錯卦代號：三爻
+	if (liuyao_form_reault.yao3.value == 6 | liuyao_form_reault.yao3.value == 8)
+	  {
+	   bengua_3_value = 0;
+	   cuogua_3_value = 1;
+	  }
+	else
+	  {
+	  bengua_3_value = 1;
+	  cuogua_3_value = 0;
+	  }
+	//判斷本卦錯卦代號：四爻
+	if (liuyao_form_reault.yao4.value == 6 | liuyao_form_reault.yao4.value == 8)
+	  {
+	   bengua_4_value = 0;
+	   cuogua_4_value = 1;
+	  }
+	else
+	  {
+	  bengua_4_value = 1;
+	  cuogua_4_value = 0;
+	  }
+	//判斷本卦錯卦代號：五爻
+	if (liuyao_form_reault.yao5.value == 6 | liuyao_form_reault.yao5.value == 8)
+	  {
+	   bengua_5_value = 0;
+	   cuogua_5_value = 1;
+	  }
+	else
+	  {
+	  bengua_5_value = 1;
+	  cuogua_5_value = 0;
+	  }		
+	//判斷本卦錯卦代號：上爻
+	if (liuyao_form_reault.yao6.value == 6 | liuyao_form_reault.yao6.value == 8)
+	  {
+	   bengua_6_value = 0;
+	   cuogua_6_value = 1;
+	  }
+	else
+	  {
+	  bengua_6_value = 1;
+	  cuogua_6_value = 0;
+	  }
+	
+	//判斷之卦代號：初爻
+	if (liuyao_form_reault.yao1.value == 9 | liuyao_form_reault.yao1.value == 8)
+	  {
+	   (zhigua_1_value) = 0;
+	  }
+	else
+	  {
+	  (zhigua_1_value) = 1;
+	  }
+	//判斷之卦代號：二爻
+	if (liuyao_form_reault.yao2.value == 9 | liuyao_form_reault.yao2.value == 8)
+	  {
+	   zhigua_2_value = 0;
+	  }
+	else
+	  {
+	  zhigua_2_value = 1;
+	  }
+	//判斷之卦代號：三爻
+	if (liuyao_form_reault.yao3.value == 9 | liuyao_form_reault.yao3.value == 8)
+	  {
+	   zhigua_3_value = 0;
+	  }
+	else
+	  {
+	  zhigua_3_value = 1;
+	  }
+	//判斷之卦代號：四爻
+	if (liuyao_form_reault.yao4.value == 9 | liuyao_form_reault.yao4.value == 8)
+	  {
+	   zhigua_4_value = 0;
+	  }
+	else
+	  {
+	  zhigua_4_value = 1;
+	  }
+	//判斷之卦代號：五爻
+	if (liuyao_form_reault.yao5.value == 9 | liuyao_form_reault.yao5.value == 8)
+	  {
+	   zhigua_5_value = 0;
+	  }
+	else
+	  {
+	  zhigua_5_value = 1;
+	  }		
+	//判斷之卦代號：上爻
+	if (liuyao_form_reault.yao6.value == 9 | liuyao_form_reault.yao6.value == 8)
+	  {
+	   zhigua_6_value = 0;
+	  }
+	else
+	  {
+	  zhigua_6_value = 1;
+	  }
+	
+	//判斷本卦變數之值：初爻
+	if (liuyao_form_reault.yao1.value == 7 | liuyao_form_reault.yao1.value == 8)
+	  {
+	   (ben_biangua_1_value) = 0;
+	  }
+	else
+	  {
+	  (ben_biangua_1_value) = 1;
+	  }
+	//判斷本卦變數之值：二爻
+	if (liuyao_form_reault.yao2.value == 7 | liuyao_form_reault.yao2.value == 8)
+	  {
+	   ben_biangua_2_value = 0;
+	  }
+	else
+	  {
+	  ben_biangua_2_value = 1;
+	  }
+	//判斷本卦變數之值：三爻
+	if (liuyao_form_reault.yao3.value == 7 | liuyao_form_reault.yao3.value == 8)
+	  {
+	   ben_biangua_3_value = 0;
+	  }
+	else
+	  {
+	  ben_biangua_3_value = 1;
+	  }
+	//判斷本卦變數之值：四爻
+	if (liuyao_form_reault.yao4.value == 7 | liuyao_form_reault.yao4.value == 8)
+	  {
+	   ben_biangua_4_value = 0;
+	  }
+	else
+	  {
+	  ben_biangua_4_value = 1;
+	  }
+	//判斷本卦變數之值：五爻
+	if (liuyao_form_reault.yao5.value == 7 | liuyao_form_reault.yao5.value == 8)
+	  {
+	   ben_biangua_5_value = 0;
+	  }
+	else
+	  {
+	  ben_biangua_5_value = 1;
+	  }		
+	//判斷本卦變數之值：上爻
+	if (liuyao_form_reault.yao6.value == 7 | liuyao_form_reault.yao6.value == 8)
+	  {
+	   ben_biangua_6_value = 0;
+	  }
+	else
+	  {
+	  ben_biangua_6_value = 1;
+	  }
+
+	//總和本卦變數之值
+	var ben_biangua_sum = Number(ben_biangua_1_value) + Number(ben_biangua_2_value) + Number(ben_biangua_3_value) + Number(ben_biangua_4_value) + Number(ben_biangua_5_value) + Number(ben_biangua_6_value) ;
+
+	//顯示爻變判斷文字
+	if (Number(ben_biangua_sum) == 0)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中六爻皆不變動，以「本卦」的卦辭占斷吉凶。");
+	  }
+	else if (Number(ben_biangua_sum) == 1)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中有一爻變動，以「本卦」變爻的爻辭占斷吉凶。");
+	  }
+	else if (Number(ben_biangua_sum) == 2)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中有二爻變動，以「本卦」兩個變爻的爻辭占斷吉凶，<br />但以居上的一爻為主。");
+	  }
+	else if (Number(ben_biangua_sum) == 3)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中有三爻變動，以「本卦」及「之卦」的卦辭占斷吉凶，<br />本卦為主、之卦為輔。");
+	  }
+	else if (Number(ben_biangua_sum) == 4)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中有四爻變動，以「之卦」的兩個不變爻的爻辭占斷吉凶，<br />但以居下的一爻為主。");
+	  }
+	else if (Number(ben_biangua_sum) == 5)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中有五爻變動，以「之卦」的一個不變爻的爻辭占斷吉凶。");
+	  }
+	else if (Number(ben_biangua_sum) == 6)
+	  {
+	  document.getElementById("biangua").innerHTML = ("卦中六爻皆變動，分兩種情況：<br />如果筮得六爻皆為純老陽或純老陰，卦成《乾》《坤》，<br />則《乾》卦以「用九」文辭占斷，《坤》卦以「用六」文辭占斷；<br />其他六爻皆變，就用「之卦」的卦辭占斷。");
+	  }
+		  
+	//取得本卦代碼
+	benguadaima = String(bengua_6_value) + String(bengua_5_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_2_value) + String(bengua_1_value);
+	zhiguadaima = String(zhigua_6_value) + String(zhigua_5_value) + String(zhigua_4_value) + String(zhigua_3_value) + String(zhigua_2_value) + String(zhigua_1_value);
+	huguadaima = String(bengua_5_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_2_value);
+	zongguadaima = String(bengua_1_value) + String(bengua_2_value) + String(bengua_3_value) + String(bengua_4_value) + String(bengua_5_value) + String(bengua_6_value);
+	cuoguadaima = String(cuogua_6_value) + String(cuogua_5_value) + String(cuogua_4_value) + String(cuogua_3_value) + String(cuogua_2_value) + String(cuogua_1_value);
+	
+	/*
+	//判斷所處爻位發展態勢：
+	if (Number(xjjg_value) == 1)
+	  {
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_1").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 2)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 3)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 4)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 5)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 6)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▃▃</font>");
+	  }
+	else if (Number(xjjg_value) == 7)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▼</font>");
+	  }
+	else if (Number(xjjg_value) == 8)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▼</font>");
+	  }
+	else if (Number(xjjg_value) == 9)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▼</font>");
+	  }
+	else if (Number(xjjg_value) == 10)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▼</font>");
+	  }
+	else if (Number(xjjg_value) == 11)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▼</font>");
+	  }
+	else if (Number(xjjg_value) == 12)
+	  {
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_1").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▃▃</font>");
+	  }
+	else if (Number(xjjg_value) == 13)
+	  {
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_1").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 14)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 15)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 16)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 17)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▲</font>");
+	  }
+	else if (Number(xjjg_value) == 18)
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▃▃</font>");
+	  }
+	else
+	  {
+	  document.getElementById("taishi_1").innerHTML = ("");
+	  document.getElementById("taishi_2").innerHTML = ("");
+	  document.getElementById("taishi_3").innerHTML = ("");
+	  document.getElementById("taishi_4").innerHTML = ("");
+	  document.getElementById("taishi_5").innerHTML = ("");
+	  document.getElementById("taishi_6").innerHTML = ("<font style='font-weight:bold; color:#cda45e;'>▼</font>");
+	  }
+	*/
+	
+	//顯示爻象、當位與否、中正與否
+	showYaoXiang ();
+
+	//顯示文本
+	document.getElementById('gua_view').style.display='';
+	qiugua_resault_output();
+	window.location.hash = "#gua_view";
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////時辰起卦程序組////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+//時辰起卦取公曆現時
+function NowSTime() {
+	var NowDate = new Date();
+	var SetYear = NowDate.getFullYear();
+	var SetMonth = (NowDate.getMonth()+1) > 9 ? (NowDate.getMonth()+1) : '0'+(NowDate.getMonth()+1);
+	var SetDay = NowDate.getDate() > 9 ? NowDate.getDate() : '0'+NowDate.getDate();
+    var SetHour = NowDate.getHours();
+    document.getElementById('year-inline-range').value = SetYear;
+    document.getElementById('month-inline-range').value = SetMonth;
+    document.getElementById('day-inline-range').value = SetDay;
+    document.getElementById('hour-inline-range').value = SetHour;
+	TimeChangetime();
+}
+
+//時辰起卦運算
+function time_fuction() {
+	//載入表單
+	var time_form_reault = document.forms["time_form"];
+	
+	//檢查有無正確輸入
+	if (Number(year_set.value) == 0)
+	{
+	alert('尚未填寫年份。');
+	return false;
+	}
+	else if (Number(month_set.value) == 0)
+	{
+	alert('尚未填寫月份。');
+	return false;
+	}
+	else if (Number(date_set.value) == 0)
+	{
+	alert('尚未填寫日期。');
+	return false;
+	}
+	else if (Number(hour_set.value) == 0)
+	{
+	alert('尚未填寫時程。');
+	return false;
+	}
+	
+	//本卦顯示時間
+	var yeartext = document.getElementById("year_set");
+	var monthtext = document.getElementById("month_set");
+	var datetext = document.getElementById("date_set");
+	var hourtext = document.getElementById("hour_set");
+	//document.getElementById('syzs_title').style.display='none';
+	//document.getElementById('ybzy_title').style.display='none';
+	//document.getElementById('syzs_info').style.display='none';
+	document.getElementById('biangua').style.display='none';
+	document.getElementById("meihua_select").style.display = ''	
+	document.getElementById("meihua_select").innerHTML = '所選時辰：' + yeartext.options[yeartext.selectedIndex].text + '年' + monthtext.options[monthtext.selectedIndex].text + datetext.options[datetext.selectedIndex].text + '日' + hourtext.options[hourtext.selectedIndex].text + '。';
+	
+	//清空變卦
+	document.getElementById("bian_1").innerHTML = ("");
+	document.getElementById("bian_2").innerHTML = ("");
+	document.getElementById("bian_3").innerHTML = ("");
+	document.getElementById("bian_4").innerHTML = ("");
+	document.getElementById("bian_5").innerHTML = ("");
+	document.getElementById("bian_6").innerHTML = ("");
+	
+	//求上下動爻
+	var yao_up = (Number(year_set.value) + Number(month_set.value) + Number(date_set.value)) % 8
+	var yao_down = (Number(year_set.value) + Number(month_set.value) + Number(date_set.value) + Number(hour_set.value)) % 8
+	var yao_change = (Number(year_set.value) + Number(month_set.value) + Number(date_set.value) + Number(hour_set.value)) % 6
+	
+	//判斷上爻
+	if ((yao_up) == 1)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 2)
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 3)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 4)
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 5)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 1;
+	  }
+	else if ((yao_up) == 6)
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 1;
+	  }
+	else if ((yao_up) == 7)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 1;
+	  }
+	else
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 1;
+	  }
+	
+	//判斷下爻
+	if ((yao_down) == 1)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 2)
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 3)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 4)
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 5)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 1;
+	  }
+	else if ((yao_down) == 6)
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 1;
+	  }
+	else if ((yao_down) == 7)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 1;
+	  }
+	else
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 1;
+	  }
+	  
+	  //判斷動爻位置及之卦各爻代號
+	  switch (yao_change)
+	  	{
+		case 0:				
+			if ((bengua_6_value) == 0)
+				{
+				document.getElementById("bian_6").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = 1;
+				}
+			else if ((bengua_6_value) == 1)
+				{
+				document.getElementById("bian_6").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = 0;
+				}
+		break;
+		case 1:				
+			if ((bengua_1_value) == 0)
+				{
+				document.getElementById("bian_1").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = 1;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_1_value) == 1)
+				{
+				document.getElementById("bian_1").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = 0;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 2:				
+			if ((bengua_2_value) == 0)
+				{
+				document.getElementById("bian_2").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = 1;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_2_value) == 1)
+				{
+				document.getElementById("bian_2").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = 0;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 3:				
+			if ((bengua_3_value) == 0)
+				{
+				document.getElementById("bian_3").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = 1;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_3_value) == 1)
+				{
+				document.getElementById("bian_3").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = 0;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 4:				
+			if ((bengua_4_value) == 0)
+				{
+				document.getElementById("bian_4").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = 1;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_4_value) == 1)
+				{
+				document.getElementById("bian_4").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = 0;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 5:				
+			if ((bengua_5_value) == 0)
+				{
+				document.getElementById("bian_5").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = 1;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_5_value) == 1)
+				{
+				document.getElementById("bian_5").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = 0;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+	}
+	
+	//各卦代碼
+	benguadaima = String(bengua_6_value) + String(bengua_5_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_2_value) + String(bengua_1_value);
+	zhiguadaima = String(zhigua_6_value) + String(zhigua_5_value) + String(zhigua_4_value) + String(zhigua_3_value) + String(zhigua_2_value) + String(zhigua_1_value);
+	huguadaima = String(bengua_5_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_2_value);
+	zongguadaima = String(bengua_1_value) + String(bengua_2_value) + String(bengua_3_value) + String(bengua_4_value) + String(bengua_5_value) + String(bengua_6_value);
+	cuoguadaima = String(cuogua_6_value) + String(cuogua_5_value) + String(cuogua_4_value) + String(cuogua_3_value) + String(cuogua_2_value) + String(cuogua_1_value);
+		
+	//顯示爻象、當位與否、中正與否
+	showYaoXiang ();
+	//顯示文本
+	document.getElementById('gua_view').style.display='';
+	qiugua_resault_output();
+	window.location.hash = "#gua_view";	
+}
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////物數起卦程序組////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
+//物數起卦取公歷現時
+function WushuChangetime() {
+	var NowDate = new Date();
+    var h = NowDate.getHours();
+    var dizhi;
+    if (h >= 1 && h<3)
+    	{
+    		document.getElementById('wushu_hour_set').value = '2';
+    		dizhi = '丑時';
+    	}
+    	else if (h >= 3 && h<5)
+    	{
+    		document.getElementById('wushu_hour_set').value = '3';
+    		dizhi = '寅時';
+    	}
+    	else if (h >= 5 && h<7)
+    	{
+    		document.getElementById('wushu_hour_set').value = '4';
+    		dizhi = '卯時';
+    	}else if (h >= 7 && h<9)
+    	{
+    		document.getElementById('wushu_hour_set').value = '5';
+    		dizhi = '辰時';
+    	}
+    	else if (h >= 9 && h<11)
+    	{
+    		document.getElementById('wushu_hour_set').value = '6';
+    		dizhi = '巳時';
+    	}
+    	else if (h >= 11 && h<13)
+    	{
+    		document.getElementById('wushu_hour_set').value = '7';
+    		dizhi = '午時';
+    	}
+    	else if (h >= 13 && h<15)
+    	{
+    		document.getElementById('wushu_hour_set').value = '8';
+    		dizhi = '未時';
+    	}
+    	else if (h >= 15 && h<17)
+    	{
+    		document.getElementById('wushu_hour_set').value = '9';
+    		dizhi = '申時';
+    	}
+    	else if (h >= 17 && h<19)
+    	{
+    		document.getElementById('wushu_hour_set').value = '10';
+    		dizhi = '酉時';
+    	}
+    	else if (h >= 19 && h<21)
+    	{
+    		document.getElementById('wushu_hour_set').value = '11';
+    		dizhi = '戌時';
+    	}
+    	else if (h >= 21 && h<23)
+    	{
+    		document.getElementById('wushu_hour_set').value = '12';
+    		dizhi = '亥時';
+    	}
+    	else if (h == 23 || h == 0)
+    	{
+    		document.getElementById('wushu_hour_set').value = '1';
+    		dizhi = '子時';
+    	}
+}
+
+//物數起卦運算
+function wushu_fuction() {
+	//載入表單
+	var time_form_reault = document.forms["wushu_form"];
+	
+	//檢查是否為大於0的菶整數
+	//驗證數值有填寫
+	if (Number(wushu_form.wushu_number_set.value) == 0)
+	{
+	alert('尚未填寫數值，請重新填入大於零之整數。');
+	return false;
+	}
+	
+	//驗證數值為整數
+	if (Number(wushu_form.wushu_number_set.value)%1 != 0)
+	{
+	alert('數值非整數，請重新填入大於零之整數。');
+	return false;
+	}
+	
+	//驗證數值大於零
+	if (Number(wushu_form.wushu_number_set.value) < 0)
+	{
+	alert('數值小於零，請重新填入大於零之整數。');
+	return false;
+	}
+	
+	//驗證時辰有填寫
+	if (Number(wushu_form.wushu_hour_set.value) == 0)
+	{
+	alert('請選擇時辰。');
+	return false;
+	}
+	
+	//清空變卦
+	document.getElementById("bian_1").innerHTML = ("");
+	document.getElementById("bian_2").innerHTML = ("");
+	document.getElementById("bian_3").innerHTML = ("");
+	document.getElementById("bian_4").innerHTML = ("");
+	document.getElementById("bian_5").innerHTML = ("");
+	document.getElementById("bian_6").innerHTML = ("");
+
+	//本卦顯示值
+	var numbertext =Number(time_form_reault.wushu_number_set.value);
+	var hourtext = document.getElementById("wushu_hour_set");
+	//document.getElementById('syzs_title').style.display='none';
+	//document.getElementById('ybzy_title').style.display='none';
+	//document.getElementById('syzs_info').style.display='none';
+	document.getElementById('biangua').style.display='none';
+	document.getElementById("meihua_select").style.display = ''	
+	document.getElementById("meihua_select").innerHTML = '所選數值：' + numbertext + '。</br>所選時辰：' + hourtext.options[hourtext.selectedIndex].text + '。';
+	
+	//求上下動爻
+	var yao_up = (Number(time_form_reault.wushu_number_set.value)) % 8;
+	var yao_down = (Number(time_form_reault.wushu_hour_set.value)) % 8;
+	var yao_change = (Number(time_form_reault.wushu_number_set.value) + Number(time_form_reault.wushu_hour_set.value)) % 6;
+	
+	//判斷上爻
+	if ((yao_up) == 1)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 2)
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 3)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 4)
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 1;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 0;
+	  }
+	else if ((yao_up) == 5)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 1;
+	  }
+	else if ((yao_up) == 6)
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 1;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 0;
+	  (cuogua_4_value) = 1;
+	  }
+	else if ((yao_up) == 7)
+	  {
+	  (bengua_6_value) = 1;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 0;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 1;
+	  }
+	else
+	  {
+	  (bengua_6_value) = 0;
+	  (bengua_5_value) = 0;
+	  (bengua_4_value) = 0;
+	  (cuogua_6_value) = 1;
+	  (cuogua_5_value) = 1;
+	  (cuogua_4_value) = 1;
+	  }
+	
+	//判斷下爻
+	if ((yao_down) == 1)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 2)
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 3)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 4)
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 1;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 0;
+	  }
+	else if ((yao_down) == 5)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 1;
+	  }
+	else if ((yao_down) == 6)
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 1;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 0;
+	  (cuogua_1_value) = 1;
+	  }
+	else if ((yao_down) == 7)
+	  {
+	  (bengua_3_value) = 1;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 0;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 1;
+	  }
+	else
+	  {
+	  (bengua_3_value) = 0;
+	  (bengua_2_value) = 0;
+	  (bengua_1_value) = 0;
+	  (cuogua_3_value) = 1;
+	  (cuogua_2_value) = 1;
+	  (cuogua_1_value) = 1;
+	  }
+	  
+	//判斷動爻位置及之卦各爻代號
+	switch (yao_change)
+	{
+		case 0:				
+			if ((bengua_6_value) == 0)
+				{
+				document.getElementById("bian_6").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = 1;
+				}
+			else if ((bengua_6_value) == 1)
+				{
+				document.getElementById("bian_6").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = 0;
+				}
+		break;
+		case 1:				
+			if ((bengua_1_value) == 0)
+				{
+				document.getElementById("bian_1").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = 1;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_1_value) == 1)
+				{
+				document.getElementById("bian_1").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = 0;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 2:				
+			if ((bengua_2_value) == 0)
+				{
+				document.getElementById("bian_2").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = 1;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_2_value) == 1)
+				{
+				document.getElementById("bian_2").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = 0;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 3:				
+			if ((bengua_3_value) == 0)
+				{
+				document.getElementById("bian_3").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = 1;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_3_value) == 1)
+				{
+				document.getElementById("bian_3").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = 0;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 4:				
+			if ((bengua_4_value) == 0)
+				{
+				document.getElementById("bian_4").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = 1;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_4_value) == 1)
+				{
+				document.getElementById("bian_4").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = 0;
+				zhigua_5_value = bengua_5_value;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+		case 5:				
+			if ((bengua_5_value) == 0)
+				{
+				document.getElementById("bian_5").innerHTML = ("<font color='#cda45e'>ㄨ</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = 1;
+				zhigua_6_value = bengua_6_value;
+				}
+			else if ((bengua_5_value) == 1)
+				{
+				document.getElementById("bian_5").innerHTML = ("<font color='#cda45e'>◯</font>");
+				zhigua_1_value = bengua_1_value;
+				zhigua_2_value = bengua_2_value;
+				zhigua_3_value = bengua_3_value;
+				zhigua_4_value = bengua_4_value;
+				zhigua_5_value = 0;
+				zhigua_6_value = bengua_6_value;
+				}
+		break;
+	}  
+	
+	//各卦代碼
+	benguadaima = String(bengua_6_value) + String(bengua_5_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_2_value) + String(bengua_1_value);
+	zhiguadaima = String(zhigua_6_value) + String(zhigua_5_value) + String(zhigua_4_value) + String(zhigua_3_value) + String(zhigua_2_value) + String(zhigua_1_value);
+	huguadaima = String(bengua_5_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_4_value) + String(bengua_3_value) + String(bengua_2_value);
+	zongguadaima = String(bengua_1_value) + String(bengua_2_value) + String(bengua_3_value) + String(bengua_4_value) + String(bengua_5_value) + String(bengua_6_value);
+	cuoguadaima = String(cuogua_6_value) + String(cuogua_5_value) + String(cuogua_4_value) + String(cuogua_3_value) + String(cuogua_2_value) + String(cuogua_1_value);
+		
+	//顯示爻象、當位與否、中正與否
+	showYaoXiang ();
+	//顯示文本
+	document.getElementById('gua_view').style.display='';
+	qiugua_resault_output();
+	window.location.hash = "#gua_view";	
+}
+
+
+///////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////多功能共同程序////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function showYaoXiang (){
+	//顯示各卦（不含之卦）爻象
+	if (Number(bengua_1_value) == 1)
+	  {
+	  document.getElementById("bengua_1").innerHTML = ("══════");
+	  document.getElementById("zonggua_6").innerHTML = ("══════");
+	  document.getElementById("cuogua_1").innerHTML = ("══　　══");
+	  }
+	else if (Number(bengua_1_value) == 0)
+	  {
+	  document.getElementById("bengua_1").innerHTML = ("══　　══");
+	  document.getElementById("zonggua_6").innerHTML = ("══　　══");
+	  document.getElementById("cuogua_1").innerHTML = ("══════");
+	  }
+	if (Number(bengua_2_value) == 1)
+	  {
+	  document.getElementById("bengua_2").innerHTML = ("══════");
+	  document.getElementById("zonggua_5").innerHTML = ("══════");
+	  document.getElementById("hugua_1").innerHTML = ("══════");
+	  document.getElementById("cuogua_2").innerHTML = ("══　══");
+	  }
+	else if (Number(bengua_2_value) == 0)
+	  {
+	  document.getElementById("bengua_2").innerHTML = ("══　　══");
+	  document.getElementById("zonggua_5").innerHTML = ("══　　══");
+	  document.getElementById("hugua_1").innerHTML = ("══　　══");
+	  document.getElementById("cuogua_2").innerHTML = ("══════");
+	  }
+	if (Number(bengua_3_value) == 1)
+	  {
+	  document.getElementById("bengua_3").innerHTML = ("══════");
+	  document.getElementById("zonggua_4").innerHTML = ("══════");
+	  document.getElementById("hugua_2").innerHTML = ("══════");
+	  document.getElementById("hugua_4").innerHTML = ("══════");
+	  document.getElementById("cuogua_3").innerHTML = ("══　　══");
+	  }
+	else if (Number(bengua_3_value) == 0)
+	  {
+	  document.getElementById("bengua_3").innerHTML = ("══　　══");
+	  document.getElementById("zonggua_4").innerHTML = ("══　　══");
+	  document.getElementById("hugua_2").innerHTML = ("══　　══");
+	  document.getElementById("hugua_4").innerHTML = ("══　　══");
+	  document.getElementById("cuogua_3").innerHTML = ("══════");
+	  }
+	if (Number(bengua_4_value) == 1)
+	  {
+	  document.getElementById("bengua_4").innerHTML = ("══════");
+	  document.getElementById("zonggua_3").innerHTML = ("══════");
+	  document.getElementById("hugua_3").innerHTML = ("══════");
+	  document.getElementById("hugua_5").innerHTML = ("══════");
+	  document.getElementById("cuogua_4").innerHTML = ("══　　══");
+	  }
+	else if (Number(bengua_4_value) == 0)
+	  {
+	  document.getElementById("bengua_4").innerHTML = ("══　　══");
+	  document.getElementById("zonggua_3").innerHTML = ("══　　══");
+	  document.getElementById("hugua_3").innerHTML = ("══　　══");
+	  document.getElementById("hugua_5").innerHTML = ("══　　══");
+	  document.getElementById("cuogua_4").innerHTML = ("══════");
+	  }
+	if (Number(bengua_5_value) == 1)
+	  {
+	  document.getElementById("bengua_5").innerHTML = ("══════");
+	  document.getElementById("zonggua_2").innerHTML = ("══════");
+	  document.getElementById("hugua_6").innerHTML = ("══════");
+	  document.getElementById("cuogua_5").innerHTML = ("══　　══");		  
+	  }
+	else if (Number(bengua_5_value) == 0)
+	  {
+	  document.getElementById("bengua_5").innerHTML = ("══　　══");
+	  document.getElementById("zonggua_2").innerHTML = ("══　　══");
+	  document.getElementById("hugua_6").innerHTML = ("══　　══");
+	  document.getElementById("cuogua_5").innerHTML = ("══════");
+	  }
+	if (Number(bengua_6_value) == 1)
+	  {
+	  document.getElementById("bengua_6").innerHTML = ("══════");
+	  document.getElementById("zonggua_1").innerHTML = ("══════");
+	  document.getElementById("cuogua_6").innerHTML = ("══　　══");	
+	  }
+	else if (Number(bengua_6_value) == 0)
+	  {
+	  document.getElementById("bengua_6").innerHTML = ("══　　══");
+	  document.getElementById("zonggua_1").innerHTML = ("══　　══");
+	  document.getElementById("cuogua_6").innerHTML = ("══════");	
+	  }
+	//顯示之卦爻象
+	//之卦初爻象
+	if (Number(zhigua_1_value) == 1)
+	  {
+	  document.getElementById("zhigua_1").innerHTML = ("══════");
+	  }
+	else if (Number(zhigua_1_value) == 0)
+	  {
+	  document.getElementById("zhigua_1").innerHTML = ("══　　══");
+	  }
+	//之卦二爻象
+	if (Number(zhigua_2_value) == 1)
+	  {
+	  document.getElementById("zhigua_2").innerHTML = ("══════");
+	  }
+	else if (Number(zhigua_2_value) == 0)
+	  {
+	  document.getElementById("zhigua_2").innerHTML = ("══　　══");
+	  }
+	//之卦三爻象
+	if (Number(zhigua_3_value) == 1)
+	  {
+	  document.getElementById("zhigua_3").innerHTML = ("══════");
+	  }
+	else if (Number(zhigua_3_value) == 0)
+	  {
+	  document.getElementById("zhigua_3").innerHTML = ("══　　══");
+	  }
+	//之卦四爻象
+	if (Number(zhigua_4_value) == 1)
+	  {
+	  document.getElementById("zhigua_4").innerHTML = ("══════");
+	  }
+	else if (Number(zhigua_4_value) == 0)
+	  {
+	  document.getElementById("zhigua_4").innerHTML = ("══　　══");
+	  }
+	//之卦五爻象
+	if (Number(zhigua_5_value) == 1)
+	  {
+	  document.getElementById("zhigua_5").innerHTML = ("══════");
+	  }
+	else if (Number(zhigua_5_value) == 0)
+	  {
+	  document.getElementById("zhigua_5").innerHTML = ("══　　══");
+	  }
+	//之卦上爻象
+	if (Number(zhigua_6_value) == 1)
+	  {
+	  document.getElementById("zhigua_6").innerHTML = ("══════");
+	  }
+	else if (Number(zhigua_6_value) == 0)
+	  {
+	  document.getElementById("zhigua_6").innerHTML = ("══　　══");
+	  }
+
+	//顯示當位與否
+	//本卦互卦綜卦錯卦當位與否：初爻
+	if (Number(bengua_1_value) == 1)
+	  {
+	  document.getElementById("bengua_yao_1").innerHTML = ("當位");
+	  document.getElementById("zonggua_yao_6").innerHTML = ("不當位");
+	  document.getElementById("cuogua_yao_1").innerHTML = ("不當位");
+	  }
+	else if (Number(bengua_1_value) == 0)
+	  {
+	  document.getElementById("bengua_yao_1").innerHTML = ("不當位");
+	  document.getElementById("zonggua_yao_6").innerHTML = ("當位");
+	  document.getElementById("cuogua_yao_1").innerHTML = ("當位");
+	  }  
+	//本卦互卦綜卦錯卦當位與否：二爻
+	if (Number(bengua_2_value) == 0)
+	  {
+	  document.getElementById("bengua_yao_2").innerHTML = ("當位");
+	  document.getElementById("zonggua_yao_5").innerHTML = ("不當位");
+	  document.getElementById("cuogua_yao_2").innerHTML = ("不當位");
+	  document.getElementById("hugua_yao_1").innerHTML = ("不當位");
+	  }
+	else if (Number(bengua_2_value) == 1)
+	  {
+	  document.getElementById("bengua_yao_2").innerHTML = ("不當位");
+	  document.getElementById("zonggua_yao_5").innerHTML = ("當位");
+	  document.getElementById("cuogua_yao_2").innerHTML = ("當位");
+	  document.getElementById("hugua_yao_1").innerHTML = ("當位");
+	  }
+	//本卦互卦綜卦錯卦當位與否：三爻
+	if (Number(bengua_3_value) == 1)
+	  {
+	  document.getElementById("bengua_yao_3").innerHTML = ("當位");
+	  document.getElementById("zonggua_yao_4").innerHTML = ("不當位");
+	  document.getElementById("cuogua_yao_3").innerHTML = ("不當位");
+	  document.getElementById("hugua_yao_2").innerHTML = ("不當位");
+	  document.getElementById("hugua_yao_4").innerHTML = ("不當位"); 
+	  }
+	else if (Number(bengua_3_value) == 0)
+	  {
+	  document.getElementById("bengua_yao_3").innerHTML = ("不當位");
+	  document.getElementById("zonggua_yao_4").innerHTML = ("當位");
+	  document.getElementById("cuogua_yao_3").innerHTML = ("當位");
+	  document.getElementById("hugua_yao_2").innerHTML = ("當位");
+	  document.getElementById("hugua_yao_4").innerHTML = ("當位");
+	  }
+	//本卦互卦綜卦錯卦當位與否：四爻
+	if (Number(bengua_4_value) == 0)
+	  {
+	  document.getElementById("bengua_yao_4").innerHTML = ("當位");
+	  document.getElementById("zonggua_yao_3").innerHTML = ("不當位");
+	  document.getElementById("cuogua_yao_4").innerHTML = ("不當位");
+	  document.getElementById("hugua_yao_3").innerHTML = ("不當位");
+	  document.getElementById("hugua_yao_5").innerHTML = ("不當位");
+	  }
+	else if (Number(bengua_4_value) == 1)
+	  {
+	  document.getElementById("bengua_yao_4").innerHTML = ("不當位");
+	  document.getElementById("zonggua_yao_3").innerHTML = ("當位");
+	  document.getElementById("cuogua_yao_4").innerHTML = ("當位");
+	  document.getElementById("hugua_yao_3").innerHTML = ("當位");
+	  document.getElementById("hugua_yao_5").innerHTML = ("當位");
+	  }
+	//本卦互卦綜卦錯卦當位與否：五爻
+	if (Number(bengua_5_value) == 1)
+	  {
+	  document.getElementById("bengua_yao_5").innerHTML = ("當位");
+	  document.getElementById("zonggua_yao_2").innerHTML = ("不當位");
+	  document.getElementById("cuogua_yao_5").innerHTML = ("不當位");
+	  document.getElementById("hugua_yao_6").innerHTML = ("不當位");
+	  }
+	else if (Number(bengua_5_value) == 0)
+	  {
+	  document.getElementById("bengua_yao_5").innerHTML = ("不當位");
+	  document.getElementById("zonggua_yao_2").innerHTML = ("當位");
+	  document.getElementById("cuogua_yao_5").innerHTML = ("當位");
+	  document.getElementById("hugua_yao_6").innerHTML = ("當位");
+	  }
+	//本卦互卦綜卦錯卦當位與否：上爻
+	if (Number(bengua_6_value) == 0)
+	  {
+	  document.getElementById("bengua_yao_6").innerHTML = ("當位");
+	  document.getElementById("zonggua_yao_1").innerHTML = ("不當位");
+	  document.getElementById("cuogua_yao_6").innerHTML = ("不當位");
+	  }
+	else if (Number(bengua_6_value) == 1)
+	  {
+	  document.getElementById("bengua_yao_6").innerHTML = ("不當位");
+	  document.getElementById("zonggua_yao_1").innerHTML = ("當位");
+	  document.getElementById("cuogua_yao_6").innerHTML = ("當位");
+	  }
+	
+	//之卦當位與否：初爻
+	if (Number(zhigua_1_value) == 1)
+	  {
+	  document.getElementById("zhigua_yao_1").innerHTML = ("當位");
+	  }
+	else if (Number(zhigua_1_value) == 0)
+	  {
+	  document.getElementById("zhigua_yao_1").innerHTML = ("不當位");
+	  }
+	//之卦當位與否：二爻
+	if (Number(zhigua_2_value) == 0)
+	  {
+	  document.getElementById("zhigua_yao_2").innerHTML = ("當位");
+	  }
+	else if (Number(zhigua_2_value) == 1)
+	  {
+	  document.getElementById("zhigua_yao_2").innerHTML = ("不當位");
+	  }
+	//之卦當位與否：三爻
+	if (Number(zhigua_3_value) == 1)
+	  {
+	  document.getElementById("zhigua_yao_3").innerHTML = ("當位");
+	  }
+	else if (Number(zhigua_3_value) == 0)
+	  {
+	  document.getElementById("zhigua_yao_3").innerHTML = ("不當位");
+	  }
+	//之卦當位與否：四爻
+	if (Number(zhigua_4_value) == 0)
+	  {
+	
+	  document.getElementById("zhigua_yao_4").innerHTML = ("當位");
+	  }
+	else if (Number(zhigua_4_value) == 1)
+	  {
+	  document.getElementById("zhigua_yao_4").innerHTML = ("不當位");
+	  }
+	//之卦當位與否：五爻
+	if (Number(zhigua_5_value) == 1)
+	  {
+	  document.getElementById("zhigua_yao_5").innerHTML = ("當位");
+	  }
+	else if (Number(zhigua_5_value) == 0)
+	  {
+	  document.getElementById("zhigua_yao_5").innerHTML = ("不當位");
+	  }
+	//之卦當位與否：上爻
+	if (Number(zhigua_6_value) == 0)
+	  {
+	  document.getElementById("zhigua_yao_6").innerHTML = ("當位");
+	  }
+	else if (Number(zhigua_6_value) == 1)
+	  {
+	  document.getElementById("zhigua_yao_6").innerHTML = ("不當位");
+	  }
+
+	//顯示中正與否	  
+	//本卦中正情形：二爻
+	if (bengua_2_value == 0)
+	  {
+	  document.getElementById("bengua_zz_2").innerHTML = ("既中且正");
+	  document.getElementById("zonggua_zz_5").innerHTML = ("柔中");
+	  document.getElementById("cuogua_zz_2").innerHTML = ("剛中");
+	  }
+	else if (bengua_2_value == 1)
+	  {
+	  document.getElementById("bengua_zz_2").innerHTML = ("剛中");
+	  document.getElementById("zonggua_zz_5").innerHTML = ("既中且正");
+	  document.getElementById("cuogua_zz_2").innerHTML = ("既中且正");
+	  }
+	  
+	//本卦中正情形：五爻
+	if (bengua_5_value == 1)
+	  {
+	  document.getElementById("bengua_zz_5").innerHTML = ("既中且正");
+	  document.getElementById("zonggua_zz_2").innerHTML = ("剛中");
+	  document.getElementById("cuogua_zz_5").innerHTML = ("柔中");
+	  }
+	else if (bengua_5_value == 0)
+	  {
+	  document.getElementById("bengua_zz_5").innerHTML = ("柔中");
+	  document.getElementById("zonggua_zz_2").innerHTML = ("既中且正");
+	  document.getElementById("cuogua_zz_5").innerHTML = ("既中且正");
+	  }
+	
+	//之卦中正情形：二爻
+	if (zhigua_2_value == 0)
+	  {
+	  document.getElementById("zhigua_zz_2").innerHTML = ("既中且正");
+	  }
+	else if (zhigua_2_value == 1)
+	  {
+	  document.getElementById("zhigua_zz_2").innerHTML = ("剛中");
+	  }
+	  
+	//之卦中正情形：五爻
+	if (zhigua_5_value == 1)
+	  {
+	  document.getElementById("zhigua_zz_5").innerHTML = ("既中且正");
+	  }
+	else if (zhigua_5_value == 0)
+	  {
+	  document.getElementById("zhigua_zz_5").innerHTML = ("柔中");
+	  }
+	
+	//互卦中正情形：二爻
+	if (bengua_3_value == 0)
+	  {
+	  document.getElementById("hugua_zz_2").innerHTML = ("既中且正");
+	  }
+	else if (bengua_3_value == 1)
+	  {
+	  document.getElementById("hugua_zz_2").innerHTML = ("剛中");
+	  }
+	  
+	//互卦中正情形：五爻
+	if (bengua_4_value == 1)
+	  {
+	  document.getElementById("hugua_zz_5").innerHTML = ("既中且正");
+	  }
+	else if (bengua_4_value == 0)
+	  {
+	  document.getElementById("hugua_zz_5").innerHTML = ("柔中");
+	  }  
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////運算後顯示卦象/////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function qiugua_resault_output(){
+	//輸出卦象符號＆哪些欄位要顯示
+	//本卦
+	switch (benguadaima)
+	{
+		case "111111":
+		document.getElementById("bengua_read_ipt_gua").style.display='';
+		document.getElementById("bengua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('bengua_read_gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("bengua_read_ipt_gua").style.display='';
+		document.getElementById("bengua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('bengua_read_gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		default:
+		document.getElementById("bengua_read_basic").style.display='';
+		document.getElementById("bengua_read_baihua_basic").style.display='';
+		document.getElementById("bengua_read_ipt_gua").style.display='none';
+		document.getElementById("bengua_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById('bengua_read_gua_pic').src = "assets/img/text_img/" + benguadaima + ".svg" ;
+		break;
+	}
+	//之卦
+	switch (zhiguadaima)
+	{
+		case "111111":
+		document.getElementById("zhigua_read_ipt_gua").style.display='';
+		document.getElementById("zhigua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('zhigua_read_gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("zhigua_read_ipt_gua").style.display='';
+		document.getElementById("zhigua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('zhigua_read_gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		default:
+		document.getElementById("zhigua_read_basic").style.display='';
+		document.getElementById("zhigua_read_baihua_basic").style.display='';
+		document.getElementById("zhigua_read_ipt_gua").style.display='none';
+		document.getElementById("zhigua_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById('zhigua_read_gua_pic').src = "assets/img/text_img/" + zhiguadaima + ".svg" ;
+		break;
+	}
+	//互卦
+	switch (huguadaima)
+	{
+		case "111111":
+		document.getElementById("hugua_read_ipt_gua").style.display='';
+		document.getElementById("hugua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('hugua_read_gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("hugua_read_ipt_gua").style.display='';
+		document.getElementById("hugua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('hugua_read_gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		default:
+		document.getElementById("hugua_read_basic").style.display='';
+		document.getElementById("hugua_read_baihua_basic").style.display='';
+		document.getElementById("hugua_read_ipt_gua").style.display='none';
+		document.getElementById("hugua_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById('hugua_read_gua_pic').src = "assets/img/text_img/" + huguadaima + ".svg" ;
+		break;
+	}
+	//綜卦
+	switch (zongguadaima)
+	{
+		case "111111":
+		document.getElementById("zonggua_read_ipt_gua").style.display='';
+		document.getElementById("zonggua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('zonggua_read_gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("zonggua_read_ipt_gua").style.display='';
+		document.getElementById("zonggua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('zonggua_read_gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		default:
+		document.getElementById("zonggua_read_basic").style.display='';
+		document.getElementById("zonggua_read_baihua_basic").style.display='';
+		document.getElementById("zonggua_read_ipt_gua").style.display='none';
+		document.getElementById("zonggua_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById('zonggua_read_gua_pic').src = "assets/img/text_img/" + zongguadaima + ".svg" ;
+		break;
+	}
+	//錯卦
+	switch (cuoguadaima)
+	{
+		case "111111":
+		document.getElementById("cuogua_read_ipt_gua").style.display='';
+		document.getElementById("cuogua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('cuogua_read_gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("cuogua_read_ipt_gua").style.display='';
+		document.getElementById("cuogua_read_baihua_ipt_gua").style.display='';	
+		document.getElementById('cuogua_read_gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		default:
+		document.getElementById("cuogua_read_basic").style.display='';
+		document.getElementById("cuogua_read_baihua_basic").style.display='';
+		document.getElementById("cuogua_read_ipt_gua").style.display='none';
+		document.getElementById("cuogua_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById('cuogua_read_gua_pic').src = "assets/img/text_img/" + cuoguadaima + ".svg" ;
+		break;
+	}
+
+	//根據值定位
+	//本卦
+	var bengua_show = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(benguadaima);
+	//之卦
+	var zhigua_show = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(zhiguadaima);
+	//互卦
+	var hugua_show = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(huguadaima);
+	//綜卦
+	var zonggua_show = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(zongguadaima);
+	//錯卦
+	var cuogua_show = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(cuoguadaima);
+
+	//輸出文本
+	//本卦
+	document.getElementById("bengua_read_zhouyi_title").innerHTML = zhouyi_text[bengua_show].title;
+	document.getElementById("bengua_read_guaxiang").innerHTML = zhouyi_text[bengua_show].guaxiang;
+	document.getElementById("bengua_read_guaxiang_baihua").innerHTML = zhouyi_text[bengua_show].guaxiang_baihua;
+	document.getElementById("bengua_read_guaxiang_tuan").innerHTML = zhouyi_text[bengua_show].guaxiang_tuan;
+	document.getElementById("bengua_read_guaxiang_tuan_baihua").innerHTML = zhouyi_text[bengua_show].guaxiang_tuan_baihua;
+	document.getElementById("bengua_read_guaxiang_xiang").innerHTML = zhouyi_text[bengua_show].guaxiang_xiang;
+	document.getElementById("bengua_read_guaxiang_xiang_baihua").innerHTML = zhouyi_text[bengua_show].guaxiang_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_gua").innerHTML = zhouyi_text[bengua_show].gdyd_gua;
+	document.getElementById("bengua_read_one").innerHTML = zhouyi_text[bengua_show].one;
+	document.getElementById("bengua_read_one_baihua").innerHTML = zhouyi_text[bengua_show].one_baihua;
+	document.getElementById("bengua_read_one_xiang").innerHTML = zhouyi_text[bengua_show].one_xiang;
+	document.getElementById("bengua_read_one_xiang_baihua").innerHTML = zhouyi_text[bengua_show].one_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_one").innerHTML = zhouyi_text[bengua_show].gdyd_one;
+	document.getElementById("bengua_read_two").innerHTML = zhouyi_text[bengua_show].two;
+	document.getElementById("bengua_read_two_baihua").innerHTML = zhouyi_text[bengua_show].two_baihua;
+	document.getElementById("bengua_read_two_xiang").innerHTML = zhouyi_text[bengua_show].two_xiang;
+	document.getElementById("bengua_read_two_xiang_baihua").innerHTML = zhouyi_text[bengua_show].two_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_two").innerHTML = zhouyi_text[bengua_show].gdyd_two;
+	document.getElementById("bengua_read_three").innerHTML = zhouyi_text[bengua_show].three;
+	document.getElementById("bengua_read_three_baihua").innerHTML = zhouyi_text[bengua_show].three_baihua;
+	document.getElementById("bengua_read_three_xiang").innerHTML = zhouyi_text[bengua_show].three_xiang;
+	document.getElementById("bengua_read_three_xiang_baihua").innerHTML = zhouyi_text[bengua_show].three_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_three").innerHTML = zhouyi_text[bengua_show].gdyd_three;
+	document.getElementById("bengua_read_four").innerHTML = zhouyi_text[bengua_show].four;
+	document.getElementById("bengua_read_four_baihua").innerHTML = zhouyi_text[bengua_show].four_baihua;
+	document.getElementById("bengua_read_four_xiang").innerHTML = zhouyi_text[bengua_show].four_xiang;
+	document.getElementById("bengua_read_four_xiang_baihua").innerHTML = zhouyi_text[bengua_show].four_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_four").innerHTML = zhouyi_text[bengua_show].gdyd_four;
+	document.getElementById("bengua_read_five").innerHTML = zhouyi_text[bengua_show].five;
+	document.getElementById("bengua_read_five_baihua").innerHTML = zhouyi_text[bengua_show].five_baihua;
+	document.getElementById("bengua_read_five_xiang").innerHTML = zhouyi_text[bengua_show].five_xiang;
+	document.getElementById("bengua_read_five_xiang_baihua").innerHTML = zhouyi_text[bengua_show].five_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_five").innerHTML = zhouyi_text[bengua_show].gdyd_five;
+	document.getElementById("bengua_read_six").innerHTML = zhouyi_text[bengua_show].six;
+	document.getElementById("bengua_read_six_baihua").innerHTML = zhouyi_text[bengua_show].six_baihua;
+	document.getElementById("bengua_read_six_xiang").innerHTML = zhouyi_text[bengua_show].six_xiang;
+	document.getElementById("bengua_read_six_xiang_baihua").innerHTML = zhouyi_text[bengua_show].six_xiang_baihua;
+	document.getElementById("bengua_read_gdyd_six").innerHTML = zhouyi_text[bengua_show].gdyd_six;
+	document.getElementById("bengua_read_yong").innerHTML = zhouyi_text[bengua_show].yong;
+	document.getElementById("bengua_read_yong_baihua").innerHTML = zhouyi_text[bengua_show].yong_baihua;
+	document.getElementById("bengua_read_wenyan").innerHTML = zhouyi_text[bengua_show].wenyan;
+	document.getElementById("bengua_read_wenyan_baihua").innerHTML = zhouyi_text[bengua_show].wenyan_baihua;
+
+	//之卦
+	document.getElementById("zhigua_read_zhouyi_title").innerHTML = zhouyi_text[zhigua_show].title;
+	document.getElementById("zhigua_read_guaxiang").innerHTML = zhouyi_text[zhigua_show].guaxiang;
+	document.getElementById("zhigua_read_guaxiang_baihua").innerHTML = zhouyi_text[zhigua_show].guaxiang_baihua;
+	document.getElementById("zhigua_read_guaxiang_tuan").innerHTML = zhouyi_text[zhigua_show].guaxiang_tuan;
+	document.getElementById("zhigua_read_guaxiang_tuan_baihua").innerHTML = zhouyi_text[zhigua_show].guaxiang_tuan_baihua;
+	document.getElementById("zhigua_read_guaxiang_xiang").innerHTML = zhouyi_text[zhigua_show].guaxiang_xiang;
+	document.getElementById("zhigua_read_guaxiang_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].guaxiang_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_gua").innerHTML = zhouyi_text[zhigua_show].gdyd_gua;
+	document.getElementById("zhigua_read_one").innerHTML = zhouyi_text[zhigua_show].one;
+	document.getElementById("zhigua_read_one_baihua").innerHTML = zhouyi_text[zhigua_show].one_baihua;
+	document.getElementById("zhigua_read_one_xiang").innerHTML = zhouyi_text[zhigua_show].one_xiang;
+	document.getElementById("zhigua_read_one_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].one_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_one").innerHTML = zhouyi_text[zhigua_show].gdyd_one;
+	document.getElementById("zhigua_read_two").innerHTML = zhouyi_text[zhigua_show].two;
+	document.getElementById("zhigua_read_two_baihua").innerHTML = zhouyi_text[zhigua_show].two_baihua;
+	document.getElementById("zhigua_read_two_xiang").innerHTML = zhouyi_text[zhigua_show].two_xiang;
+	document.getElementById("zhigua_read_two_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].two_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_two").innerHTML = zhouyi_text[zhigua_show].gdyd_two;
+	document.getElementById("zhigua_read_three").innerHTML = zhouyi_text[zhigua_show].three;
+	document.getElementById("zhigua_read_three_baihua").innerHTML = zhouyi_text[zhigua_show].three_baihua;
+	document.getElementById("zhigua_read_three_xiang").innerHTML = zhouyi_text[zhigua_show].three_xiang;
+	document.getElementById("zhigua_read_three_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].three_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_three").innerHTML = zhouyi_text[zhigua_show].gdyd_three;
+	document.getElementById("zhigua_read_four").innerHTML = zhouyi_text[zhigua_show].four;
+	document.getElementById("zhigua_read_four_baihua").innerHTML = zhouyi_text[zhigua_show].four_baihua;
+	document.getElementById("zhigua_read_four_xiang").innerHTML = zhouyi_text[zhigua_show].four_xiang;
+	document.getElementById("zhigua_read_four_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].four_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_four").innerHTML = zhouyi_text[zhigua_show].gdyd_four;
+	document.getElementById("zhigua_read_five").innerHTML = zhouyi_text[zhigua_show].five;
+	document.getElementById("zhigua_read_five_baihua").innerHTML = zhouyi_text[zhigua_show].five_baihua;
+	document.getElementById("zhigua_read_five_xiang").innerHTML = zhouyi_text[zhigua_show].five_xiang;
+	document.getElementById("zhigua_read_five_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].five_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_five").innerHTML = zhouyi_text[zhigua_show].gdyd_five;
+	document.getElementById("zhigua_read_six").innerHTML = zhouyi_text[zhigua_show].six;
+	document.getElementById("zhigua_read_six_baihua").innerHTML = zhouyi_text[zhigua_show].six_baihua;
+	document.getElementById("zhigua_read_six_xiang").innerHTML = zhouyi_text[zhigua_show].six_xiang;
+	document.getElementById("zhigua_read_six_xiang_baihua").innerHTML = zhouyi_text[zhigua_show].six_xiang_baihua;
+	document.getElementById("zhigua_read_gdyd_six").innerHTML = zhouyi_text[zhigua_show].gdyd_six;
+	document.getElementById("zhigua_read_yong").innerHTML = zhouyi_text[zhigua_show].yong;
+	document.getElementById("zhigua_read_yong_baihua").innerHTML = zhouyi_text[zhigua_show].yong_baihua;
+	document.getElementById("zhigua_read_wenyan").innerHTML = zhouyi_text[zhigua_show].wenyan;
+	document.getElementById("zhigua_read_wenyan_baihua").innerHTML = zhouyi_text[zhigua_show].wenyan_baihua;
+	
+	//互卦
+	document.getElementById("hugua_read_zhouyi_title").innerHTML = zhouyi_text[hugua_show].title;
+	document.getElementById("hugua_read_guaxiang").innerHTML = zhouyi_text[hugua_show].guaxiang;
+	document.getElementById("hugua_read_guaxiang_baihua").innerHTML = zhouyi_text[hugua_show].guaxiang_baihua;
+	document.getElementById("hugua_read_guaxiang_tuan").innerHTML = zhouyi_text[hugua_show].guaxiang_tuan;
+	document.getElementById("hugua_read_guaxiang_tuan_baihua").innerHTML = zhouyi_text[hugua_show].guaxiang_tuan_baihua;
+	document.getElementById("hugua_read_guaxiang_xiang").innerHTML = zhouyi_text[hugua_show].guaxiang_xiang;
+	document.getElementById("hugua_read_guaxiang_xiang_baihua").innerHTML = zhouyi_text[hugua_show].guaxiang_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_gua").innerHTML = zhouyi_text[hugua_show].gdyd_gua;
+	document.getElementById("hugua_read_one").innerHTML = zhouyi_text[hugua_show].one;
+	document.getElementById("hugua_read_one_baihua").innerHTML = zhouyi_text[hugua_show].one_baihua;
+	document.getElementById("hugua_read_one_xiang").innerHTML = zhouyi_text[hugua_show].one_xiang;
+	document.getElementById("hugua_read_one_xiang_baihua").innerHTML = zhouyi_text[hugua_show].one_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_one").innerHTML = zhouyi_text[hugua_show].gdyd_one;
+	document.getElementById("hugua_read_two").innerHTML = zhouyi_text[hugua_show].two;
+	document.getElementById("hugua_read_two_baihua").innerHTML = zhouyi_text[hugua_show].two_baihua;
+	document.getElementById("hugua_read_two_xiang").innerHTML = zhouyi_text[hugua_show].two_xiang;
+	document.getElementById("hugua_read_two_xiang_baihua").innerHTML = zhouyi_text[hugua_show].two_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_two").innerHTML = zhouyi_text[hugua_show].gdyd_two;
+	document.getElementById("hugua_read_three").innerHTML = zhouyi_text[hugua_show].three;
+	document.getElementById("hugua_read_three_baihua").innerHTML = zhouyi_text[hugua_show].three_baihua;
+	document.getElementById("hugua_read_three_xiang").innerHTML = zhouyi_text[hugua_show].three_xiang;
+	document.getElementById("hugua_read_three_xiang_baihua").innerHTML = zhouyi_text[hugua_show].three_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_three").innerHTML = zhouyi_text[hugua_show].gdyd_three;
+	document.getElementById("hugua_read_four").innerHTML = zhouyi_text[hugua_show].four;
+	document.getElementById("hugua_read_four_baihua").innerHTML = zhouyi_text[hugua_show].four_baihua;
+	document.getElementById("hugua_read_four_xiang").innerHTML = zhouyi_text[hugua_show].four_xiang;
+	document.getElementById("hugua_read_four_xiang_baihua").innerHTML = zhouyi_text[hugua_show].four_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_four").innerHTML = zhouyi_text[hugua_show].gdyd_four;
+	document.getElementById("hugua_read_five").innerHTML = zhouyi_text[hugua_show].five;
+	document.getElementById("hugua_read_five_baihua").innerHTML = zhouyi_text[hugua_show].five_baihua;
+	document.getElementById("hugua_read_five_xiang").innerHTML = zhouyi_text[hugua_show].five_xiang;
+	document.getElementById("hugua_read_five_xiang_baihua").innerHTML = zhouyi_text[hugua_show].five_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_five").innerHTML = zhouyi_text[hugua_show].gdyd_five;
+	document.getElementById("hugua_read_six").innerHTML = zhouyi_text[hugua_show].six;
+	document.getElementById("hugua_read_six_baihua").innerHTML = zhouyi_text[hugua_show].six_baihua;
+	document.getElementById("hugua_read_six_xiang").innerHTML = zhouyi_text[hugua_show].six_xiang;
+	document.getElementById("hugua_read_six_xiang_baihua").innerHTML = zhouyi_text[hugua_show].six_xiang_baihua;
+	document.getElementById("hugua_read_gdyd_six").innerHTML = zhouyi_text[hugua_show].gdyd_six;
+	document.getElementById("hugua_read_yong").innerHTML = zhouyi_text[hugua_show].yong;
+	document.getElementById("hugua_read_yong_baihua").innerHTML = zhouyi_text[hugua_show].yong_baihua;
+	document.getElementById("hugua_read_wenyan").innerHTML = zhouyi_text[hugua_show].wenyan;
+	document.getElementById("hugua_read_wenyan_baihua").innerHTML = zhouyi_text[hugua_show].wenyan_baihua;
+	
+	//綜卦
+	document.getElementById("zonggua_read_zhouyi_title").innerHTML = zhouyi_text[zonggua_show].title;
+	document.getElementById("zonggua_read_guaxiang").innerHTML = zhouyi_text[zonggua_show].guaxiang;
+	document.getElementById("zonggua_read_guaxiang_baihua").innerHTML = zhouyi_text[zonggua_show].guaxiang_baihua;
+	document.getElementById("zonggua_read_guaxiang_tuan").innerHTML = zhouyi_text[zonggua_show].guaxiang_tuan;
+	document.getElementById("zonggua_read_guaxiang_tuan_baihua").innerHTML = zhouyi_text[zonggua_show].guaxiang_tuan_baihua;
+	document.getElementById("zonggua_read_guaxiang_xiang").innerHTML = zhouyi_text[zonggua_show].guaxiang_xiang;
+	document.getElementById("zonggua_read_guaxiang_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].guaxiang_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_gua").innerHTML = zhouyi_text[zonggua_show].gdyd_gua;
+	document.getElementById("zonggua_read_one").innerHTML = zhouyi_text[zonggua_show].one;
+	document.getElementById("zonggua_read_one_baihua").innerHTML = zhouyi_text[zonggua_show].one_baihua;
+	document.getElementById("zonggua_read_one_xiang").innerHTML = zhouyi_text[zonggua_show].one_xiang;
+	document.getElementById("zonggua_read_one_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].one_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_one").innerHTML = zhouyi_text[zonggua_show].gdyd_one;
+	document.getElementById("zonggua_read_two").innerHTML = zhouyi_text[zonggua_show].two;
+	document.getElementById("zonggua_read_two_baihua").innerHTML = zhouyi_text[zonggua_show].two_baihua;
+	document.getElementById("zonggua_read_two_xiang").innerHTML = zhouyi_text[zonggua_show].two_xiang;
+	document.getElementById("zonggua_read_two_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].two_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_two").innerHTML = zhouyi_text[zonggua_show].gdyd_two;
+	document.getElementById("zonggua_read_three").innerHTML = zhouyi_text[zonggua_show].three;
+	document.getElementById("zonggua_read_three_baihua").innerHTML = zhouyi_text[zonggua_show].three_baihua;
+	document.getElementById("zonggua_read_three_xiang").innerHTML = zhouyi_text[zonggua_show].three_xiang;
+	document.getElementById("zonggua_read_three_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].three_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_three").innerHTML = zhouyi_text[zonggua_show].gdyd_three;
+	document.getElementById("zonggua_read_four").innerHTML = zhouyi_text[zonggua_show].four;
+	document.getElementById("zonggua_read_four_baihua").innerHTML = zhouyi_text[zonggua_show].four_baihua;
+	document.getElementById("zonggua_read_four_xiang").innerHTML = zhouyi_text[zonggua_show].four_xiang;
+	document.getElementById("zonggua_read_four_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].four_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_four").innerHTML = zhouyi_text[zonggua_show].gdyd_four;
+	document.getElementById("zonggua_read_five").innerHTML = zhouyi_text[zonggua_show].five;
+	document.getElementById("zonggua_read_five_baihua").innerHTML = zhouyi_text[zonggua_show].five_baihua;
+	document.getElementById("zonggua_read_five_xiang").innerHTML = zhouyi_text[zonggua_show].five_xiang;
+	document.getElementById("zonggua_read_five_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].five_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_five").innerHTML = zhouyi_text[zonggua_show].gdyd_five;
+	document.getElementById("zonggua_read_six").innerHTML = zhouyi_text[zonggua_show].six;
+	document.getElementById("zonggua_read_six_baihua").innerHTML = zhouyi_text[zonggua_show].six_baihua;
+	document.getElementById("zonggua_read_six_xiang").innerHTML = zhouyi_text[zonggua_show].six_xiang;
+	document.getElementById("zonggua_read_six_xiang_baihua").innerHTML = zhouyi_text[zonggua_show].six_xiang_baihua;
+	document.getElementById("zonggua_read_gdyd_six").innerHTML = zhouyi_text[zonggua_show].gdyd_six;
+	document.getElementById("zonggua_read_yong").innerHTML = zhouyi_text[zonggua_show].yong;
+	document.getElementById("zonggua_read_yong_baihua").innerHTML = zhouyi_text[zonggua_show].yong_baihua;
+	document.getElementById("zonggua_read_wenyan").innerHTML = zhouyi_text[zonggua_show].wenyan;
+	document.getElementById("zonggua_read_wenyan_baihua").innerHTML = zhouyi_text[zonggua_show].wenyan_baihua;
+	
+	//錯卦
+	document.getElementById("cuogua_read_zhouyi_title").innerHTML = zhouyi_text[cuogua_show].title;
+	document.getElementById("cuogua_read_guaxiang").innerHTML = zhouyi_text[cuogua_show].guaxiang;
+	document.getElementById("cuogua_read_guaxiang_baihua").innerHTML = zhouyi_text[cuogua_show].guaxiang_baihua;
+	document.getElementById("cuogua_read_guaxiang_tuan").innerHTML = zhouyi_text[cuogua_show].guaxiang_tuan;
+	document.getElementById("cuogua_read_guaxiang_tuan_baihua").innerHTML = zhouyi_text[cuogua_show].guaxiang_tuan_baihua;
+	document.getElementById("cuogua_read_guaxiang_xiang").innerHTML = zhouyi_text[cuogua_show].guaxiang_xiang;
+	document.getElementById("cuogua_read_guaxiang_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].guaxiang_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_gua").innerHTML = zhouyi_text[cuogua_show].gdyd_gua;
+	document.getElementById("cuogua_read_one").innerHTML = zhouyi_text[cuogua_show].one;
+	document.getElementById("cuogua_read_one_baihua").innerHTML = zhouyi_text[cuogua_show].one_baihua;
+	document.getElementById("cuogua_read_one_xiang").innerHTML = zhouyi_text[cuogua_show].one_xiang;
+	document.getElementById("cuogua_read_one_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].one_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_one").innerHTML = zhouyi_text[cuogua_show].gdyd_one;
+	document.getElementById("cuogua_read_two").innerHTML = zhouyi_text[cuogua_show].two;
+	document.getElementById("cuogua_read_two_baihua").innerHTML = zhouyi_text[cuogua_show].two_baihua;
+	document.getElementById("cuogua_read_two_xiang").innerHTML = zhouyi_text[cuogua_show].two_xiang;
+	document.getElementById("cuogua_read_two_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].two_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_two").innerHTML = zhouyi_text[cuogua_show].gdyd_two;
+	document.getElementById("cuogua_read_three").innerHTML = zhouyi_text[cuogua_show].three;
+	document.getElementById("cuogua_read_three_baihua").innerHTML = zhouyi_text[cuogua_show].three_baihua;
+	document.getElementById("cuogua_read_three_xiang").innerHTML = zhouyi_text[cuogua_show].three_xiang;
+	document.getElementById("cuogua_read_three_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].three_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_three").innerHTML = zhouyi_text[cuogua_show].gdyd_three;
+	document.getElementById("cuogua_read_four").innerHTML = zhouyi_text[cuogua_show].four;
+	document.getElementById("cuogua_read_four_baihua").innerHTML = zhouyi_text[cuogua_show].four_baihua;
+	document.getElementById("cuogua_read_four_xiang").innerHTML = zhouyi_text[cuogua_show].four_xiang;
+	document.getElementById("cuogua_read_four_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].four_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_four").innerHTML = zhouyi_text[cuogua_show].gdyd_four;
+	document.getElementById("cuogua_read_five").innerHTML = zhouyi_text[cuogua_show].five;
+	document.getElementById("cuogua_read_five_baihua").innerHTML = zhouyi_text[cuogua_show].five_baihua;
+	document.getElementById("cuogua_read_five_xiang").innerHTML = zhouyi_text[cuogua_show].five_xiang;
+	document.getElementById("cuogua_read_five_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].five_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_five").innerHTML = zhouyi_text[cuogua_show].gdyd_five;
+	document.getElementById("cuogua_read_six").innerHTML = zhouyi_text[cuogua_show].six;
+	document.getElementById("cuogua_read_six_baihua").innerHTML = zhouyi_text[cuogua_show].six_baihua;
+	document.getElementById("cuogua_read_six_xiang").innerHTML = zhouyi_text[cuogua_show].six_xiang;
+	document.getElementById("cuogua_read_six_xiang_baihua").innerHTML = zhouyi_text[cuogua_show].six_xiang_baihua;
+	document.getElementById("cuogua_read_gdyd_six").innerHTML = zhouyi_text[cuogua_show].gdyd_six;
+	document.getElementById("cuogua_read_yong").innerHTML = zhouyi_text[cuogua_show].yong;
+	document.getElementById("cuogua_read_yong_baihua").innerHTML = zhouyi_text[cuogua_show].yong_baihua;
+	document.getElementById("cuogua_read_wenyan").innerHTML = zhouyi_text[cuogua_show].wenyan;
+	document.getElementById("cuogua_read_wenyan_baihua").innerHTML = zhouyi_text[cuogua_show].wenyan_baihua;
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////界面清除/////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function liuyao_reset(){
+	godtime = 0; 
+	firstgodtime = 0;
+	document.getElementById('gua_view').style.display='none';
+	window.location.hash = "#liuyao_set";
+}
+function time_reset(){
+	document.getElementById('gua_view').style.display='none';
+	window.location.hash = "#liuyao_set";
+}
+function wushu_reset(){
+	document.getElementById('gua_view').style.display='none';
+	window.location.hash = "#liuyao_set";
+}
+//回頁首
+function backhome(){
+	godtime = 0; 
+	firstgodtime = 0;
+	document.getElementById('liuyao_form').reset();
+	document.getElementById('time_form').reset();
+	document.getElementById('wushu_form').reset();
+	document.getElementById('liuyao_set').style.display='none';
+	document.getElementById('time_set').style.display='none';
+	document.getElementById('number_set').style.display='none';
+	document.getElementById('read_set').style.display='none';
+	document.getElementById('zhouyi_read_window').style.display='none';
+	document.getElementById('hero').style.height='100vh';
+	document.getElementById('gua_view').style.display='none';
+	document.getElementById('gua_view_readtext_set').value='666666';
+	document.getElementById('readtext_set').value='666666';
+	document.getElementById('guaview_read_zhouyi_read_window').style.display='none';
+	document.getElementById('gua_view_guahead').style.display='none';
+	document.getElementById('tab1').className  = "nav-link active show";
+	document.getElementById('tab2').className  = "nav-link";
+	document.getElementById('tab3').className  = "nav-link";
+	document.getElementById('tab4').className  = "nav-link";
+	document.getElementById('tab5').className  = "nav-link";
+	document.getElementById('tab6').className  = "nav-link";
+	document.getElementById('tab-1').className  = "tab-pane active show";
+	document.getElementById('tab-2').className  = "tab-pane";
+	document.getElementById('tab-3').className  = "tab-pane";
+	document.getElementById('tab-4').className  = "tab-pane";
+	document.getElementById('tab-5').className  = "tab-pane";
+	document.getElementById('tab-6').className  = "tab-pane";
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////求卦參照閱讀文本/////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function gua_view_readtext(){
+	//載入表單
+	var gvread_form = document.forms["gua_view_read_form"];
+	var gvread_input = String(gua_view_read_form.gua_view_readtext_set.value);
+	//根據值定位
+	var gvread_daima = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(gvread_input);
+	//輸出卦象符號＆哪些欄位要顯示
+	switch (gvread_input)
+	{
+		case "111111":
+		document.getElementById("guaview_read_ipt_gua").style.display='';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='';	
+		document.getElementById("guaview_read_shiyi_div").style.display='none';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='none';
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("guaview_read_ipt_gua").style.display='';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='';	
+		document.getElementById("guaview_read_shiyi_div").style.display='none';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='none';
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		case "700001":
+		document.getElementById("guaview_read_basic").style.display='none';
+		document.getElementById("guaview_read_baihua_basic").style.display='none';
+		document.getElementById("guaview_read_ipt_gua").style.display='none';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById("guaview_read_shiyi_div").style.display='';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='';
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/doc.svg" ;	
+		break;
+		case "700002":
+		document.getElementById("guaview_read_basic").style.display='none';
+		document.getElementById("guaview_read_baihua_basic").style.display='none';
+		document.getElementById("guaview_read_ipt_gua").style.display='none';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById("guaview_read_shiyi_div").style.display='';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='';
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "700003":
+		document.getElementById("guaview_read_basic").style.display='none';
+		document.getElementById("guaview_read_baihua_basic").style.display='none';
+		document.getElementById("guaview_read_ipt_gua").style.display='none';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById("guaview_read_shiyi_div").style.display='';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='';	
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "700004":
+		document.getElementById("guaview_read_basic").style.display='none';
+		document.getElementById("guaview_read_baihua_basic").style.display='none';
+		document.getElementById("guaview_read_ipt_gua").style.display='none';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById("guaview_read_shiyi_div").style.display='';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='';	
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "700005":
+		document.getElementById("guaview_read_basic").style.display='none';
+		document.getElementById("guaview_read_baihua_basic").style.display='none';
+		document.getElementById("guaview_read_ipt_gua").style.display='none';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById("guaview_read_shiyi_div").style.display='';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='';
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "666666":
+		return false;
+		break;
+		default:
+		document.getElementById("guaview_read_basic").style.display='';
+		document.getElementById("guaview_read_baihua_basic").style.display='';
+		document.getElementById("guaview_read_shiyi_div").style.display='none';
+		document.getElementById("guaview_read_shiyi_baihua_div").style.display='none';	
+		document.getElementById("guaview_read_ipt_gua").style.display='none';
+		document.getElementById("guaview_read_baihua_ipt_gua").style.display='none';	
+		document.getElementById('guaview_read_gua_pic').src = "assets/img/text_img/" + gvread_input + ".svg" ;
+		break;
+	};
+	//顯示文本頁
+	document.getElementById('gua_view_guahead').style.display='';
+	document.getElementById('guaview_read_zhouyi_read_window').style.display='';
+	window.location.hash = "#gua_view_guahead";
+	//輸出文本
+	document.getElementById("guaview_read_zhouyi_title").innerHTML = zhouyi_text[gvread_daima].title;
+	document.getElementById("guaview_read_guaxiang").innerHTML = zhouyi_text[gvread_daima].guaxiang;
+	document.getElementById("guaview_read_guaxiang_baihua").innerHTML = zhouyi_text[gvread_daima].guaxiang_baihua;
+	document.getElementById("guaview_read_guaxiang_tuan").innerHTML = zhouyi_text[gvread_daima].guaxiang_tuan;
+	document.getElementById("guaview_read_guaxiang_tuan_baihua").innerHTML = zhouyi_text[gvread_daima].guaxiang_tuan_baihua;
+	document.getElementById("guaview_read_guaxiang_xiang").innerHTML = zhouyi_text[gvread_daima].guaxiang_xiang;
+	document.getElementById("guaview_read_guaxiang_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].guaxiang_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_gua").innerHTML = zhouyi_text[gvread_daima].gdyd_gua;
+	document.getElementById("guaview_read_one").innerHTML = zhouyi_text[gvread_daima].one;
+	document.getElementById("guaview_read_one_baihua").innerHTML = zhouyi_text[gvread_daima].one_baihua;
+	document.getElementById("guaview_read_one_xiang").innerHTML = zhouyi_text[gvread_daima].one_xiang;
+	document.getElementById("guaview_read_one_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].one_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_one").innerHTML = zhouyi_text[gvread_daima].gdyd_one;
+	document.getElementById("guaview_read_two").innerHTML = zhouyi_text[gvread_daima].two;
+	document.getElementById("guaview_read_two_baihua").innerHTML = zhouyi_text[gvread_daima].two_baihua;
+	document.getElementById("guaview_read_two_xiang").innerHTML = zhouyi_text[gvread_daima].two_xiang;
+	document.getElementById("guaview_read_two_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].two_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_two").innerHTML = zhouyi_text[gvread_daima].gdyd_two;
+	document.getElementById("guaview_read_three").innerHTML = zhouyi_text[gvread_daima].three;
+	document.getElementById("guaview_read_three_baihua").innerHTML = zhouyi_text[gvread_daima].three_baihua;
+	document.getElementById("guaview_read_three_xiang").innerHTML = zhouyi_text[gvread_daima].three_xiang;
+	document.getElementById("guaview_read_three_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].three_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_three").innerHTML = zhouyi_text[gvread_daima].gdyd_three;
+	document.getElementById("guaview_read_four").innerHTML = zhouyi_text[gvread_daima].four;
+	document.getElementById("guaview_read_four_baihua").innerHTML = zhouyi_text[gvread_daima].four_baihua;
+	document.getElementById("guaview_read_four_xiang").innerHTML = zhouyi_text[gvread_daima].four_xiang;
+	document.getElementById("guaview_read_four_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].four_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_four").innerHTML = zhouyi_text[gvread_daima].gdyd_four;
+	document.getElementById("guaview_read_five").innerHTML = zhouyi_text[gvread_daima].five;
+	document.getElementById("guaview_read_five_baihua").innerHTML = zhouyi_text[gvread_daima].five_baihua;
+	document.getElementById("guaview_read_five_xiang").innerHTML = zhouyi_text[gvread_daima].five_xiang;
+	document.getElementById("guaview_read_five_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].five_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_five").innerHTML = zhouyi_text[gvread_daima].gdyd_five;
+	document.getElementById("guaview_read_six").innerHTML = zhouyi_text[gvread_daima].six;
+	document.getElementById("guaview_read_six_baihua").innerHTML = zhouyi_text[gvread_daima].six_baihua;
+	document.getElementById("guaview_read_six_xiang").innerHTML = zhouyi_text[gvread_daima].six_xiang;
+	document.getElementById("guaview_read_six_xiang_baihua").innerHTML = zhouyi_text[gvread_daima].six_xiang_baihua;
+	document.getElementById("guaview_read_gdyd_six").innerHTML = zhouyi_text[gvread_daima].gdyd_six;
+	document.getElementById("guaview_read_yong").innerHTML = zhouyi_text[gvread_daima].yong;
+	document.getElementById("guaview_read_yong_baihua").innerHTML = zhouyi_text[gvread_daima].yong_baihua;
+	document.getElementById("guaview_read_wenyan").innerHTML = zhouyi_text[gvread_daima].wenyan;
+	document.getElementById("guaview_read_wenyan_baihua").innerHTML = zhouyi_text[gvread_daima].wenyan_baihua;
+	document.getElementById("guaview_read_shiyi").innerHTML = zhouyi_text[gvread_daima].text;
+	document.getElementById("guaview_read_shiyi_baihua").innerHTML = zhouyi_text[gvread_daima].text_baihua;
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////
+////////////////////////////////////////////閱讀文本////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+function readtext(){
+	//載入表單
+	var form = document.forms["read_form"];
+	var read_input = String(read_form.readtext_set.value);
+	//根據值定位
+	var read_daima = $.map(zhouyi_text, function(item, index) {
+	  return item.id;
+	}).indexOf(read_input);
+	
+	//輸出卦象符號＆哪些欄位要顯示
+	switch (read_input)
+	{
+		case "111111":
+		document.getElementById("ipt_gua").style.display='';
+		document.getElementById("baihua_ipt_gua").style.display='';	
+		document.getElementById("shiyi_div").style.display='none';
+		document.getElementById("shiyi_baihua_div").style.display='none';
+		document.getElementById('gua_pic').src = "assets/img/text_img/111111.svg" ;
+		break;
+		case "000000":
+		document.getElementById("ipt_gua").style.display='';
+		document.getElementById("baihua_ipt_gua").style.display='';	
+		document.getElementById("shiyi_div").style.display='none';
+		document.getElementById("shiyi_baihua_div").style.display='none';
+		document.getElementById('gua_pic').src = "assets/img/text_img/000000.svg" ;
+		break;
+		case "700001":
+		document.getElementById("basic").style.display='none';
+		document.getElementById("baihua_basic").style.display='none';
+		document.getElementById("ipt_gua").style.display='none';
+		document.getElementById("baihua_ipt_gua").style.display='none';	
+		document.getElementById("shiyi_div").style.display='';
+		document.getElementById("shiyi_baihua_div").style.display='';
+		document.getElementById('gua_pic').src = "assets/img/text_img/doc.svg" ;	
+		break;
+		case "700002":
+		document.getElementById("basic").style.display='none';
+		document.getElementById("baihua_basic").style.display='none';
+		document.getElementById("ipt_gua").style.display='none';
+		document.getElementById("baihua_ipt_gua").style.display='none';	
+		document.getElementById("shiyi_div").style.display='';
+		document.getElementById("shiyi_baihua_div").style.display='';
+		document.getElementById('gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "700003":
+		document.getElementById("basic").style.display='none';
+		document.getElementById("baihua_basic").style.display='none';
+		document.getElementById("ipt_gua").style.display='none';
+		document.getElementById("baihua_ipt_gua").style.display='none';	
+		document.getElementById("shiyi_div").style.display='';
+		document.getElementById("shiyi_baihua_div").style.display='';	
+		document.getElementById('gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "700004":
+		document.getElementById("basic").style.display='none';
+		document.getElementById("baihua_basic").style.display='none';
+		document.getElementById("ipt_gua").style.display='none';
+		document.getElementById("baihua_ipt_gua").style.display='none';	
+		document.getElementById("shiyi_div").style.display='';
+		document.getElementById("shiyi_baihua_div").style.display='';	
+		document.getElementById('gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "700005":
+		document.getElementById("basic").style.display='none';
+		document.getElementById("baihua_basic").style.display='none';
+		document.getElementById("ipt_gua").style.display='none';
+		document.getElementById("baihua_ipt_gua").style.display='none';	
+		document.getElementById("shiyi_div").style.display='';
+		document.getElementById("shiyi_baihua_div").style.display='';
+		document.getElementById('gua_pic').src = "assets/img/text_img/doc.svg" ;
+		break;
+		case "666666":
+		return false;
+		break;
+		default:
+		document.getElementById("basic").style.display='';
+		document.getElementById("baihua_basic").style.display='';
+		document.getElementById("shiyi_div").style.display='none';
+		document.getElementById("shiyi_baihua_div").style.display='none';	
+		document.getElementById("ipt_gua").style.display='none';
+		document.getElementById("baihua_ipt_gua").style.display='none';	
+		document.getElementById('gua_pic').src = "assets/img/text_img/" + read_input + ".svg" ;
+		break;
+	};
+	//顯示文本頁
+	document.getElementById('zhouyi_read_window').style.display='';
+	window.location.hash = "#guahead";
+	//輸出文本
+	document.getElementById("zhouyi_title").innerHTML = zhouyi_text[read_daima].title;
+	document.getElementById("guaxiang").innerHTML = zhouyi_text[read_daima].guaxiang;
+	document.getElementById("guaxiang_baihua").innerHTML = zhouyi_text[read_daima].guaxiang_baihua;
+	document.getElementById("guaxiang_tuan").innerHTML = zhouyi_text[read_daima].guaxiang_tuan;
+	document.getElementById("guaxiang_tuan_baihua").innerHTML = zhouyi_text[read_daima].guaxiang_tuan_baihua;
+	document.getElementById("guaxiang_xiang").innerHTML = zhouyi_text[read_daima].guaxiang_xiang;
+	document.getElementById("guaxiang_xiang_baihua").innerHTML = zhouyi_text[read_daima].guaxiang_xiang_baihua;
+	document.getElementById("gdyd_gua").innerHTML = zhouyi_text[read_daima].gdyd_gua;
+	document.getElementById("one").innerHTML = zhouyi_text[read_daima].one;
+	document.getElementById("one_baihua").innerHTML = zhouyi_text[read_daima].one_baihua;
+	document.getElementById("one_xiang").innerHTML = zhouyi_text[read_daima].one_xiang;
+	document.getElementById("one_xiang_baihua").innerHTML = zhouyi_text[read_daima].one_xiang_baihua;
+	document.getElementById("gdyd_one").innerHTML = zhouyi_text[read_daima].gdyd_one;
+	document.getElementById("two").innerHTML = zhouyi_text[read_daima].two;
+	document.getElementById("two_baihua").innerHTML = zhouyi_text[read_daima].two_baihua;
+	document.getElementById("two_xiang").innerHTML = zhouyi_text[read_daima].two_xiang;
+	document.getElementById("two_xiang_baihua").innerHTML = zhouyi_text[read_daima].two_xiang_baihua;
+	document.getElementById("gdyd_two").innerHTML = zhouyi_text[read_daima].gdyd_two;
+	document.getElementById("three").innerHTML = zhouyi_text[read_daima].three;
+	document.getElementById("three_baihua").innerHTML = zhouyi_text[read_daima].three_baihua;
+	document.getElementById("three_xiang").innerHTML = zhouyi_text[read_daima].three_xiang;
+	document.getElementById("three_xiang_baihua").innerHTML = zhouyi_text[read_daima].three_xiang_baihua;
+	document.getElementById("gdyd_three").innerHTML = zhouyi_text[read_daima].gdyd_three;
+	document.getElementById("four").innerHTML = zhouyi_text[read_daima].four;
+	document.getElementById("four_baihua").innerHTML = zhouyi_text[read_daima].four_baihua;
+	document.getElementById("four_xiang").innerHTML = zhouyi_text[read_daima].four_xiang;
+	document.getElementById("four_xiang_baihua").innerHTML = zhouyi_text[read_daima].four_xiang_baihua;
+	document.getElementById("gdyd_four").innerHTML = zhouyi_text[read_daima].gdyd_four;
+	document.getElementById("five").innerHTML = zhouyi_text[read_daima].five;
+	document.getElementById("five_baihua").innerHTML = zhouyi_text[read_daima].five_baihua;
+	document.getElementById("five_xiang").innerHTML = zhouyi_text[read_daima].five_xiang;
+	document.getElementById("five_xiang_baihua").innerHTML = zhouyi_text[read_daima].five_xiang_baihua;
+	document.getElementById("gdyd_five").innerHTML = zhouyi_text[read_daima].gdyd_five;
+	document.getElementById("six").innerHTML = zhouyi_text[read_daima].six;
+	document.getElementById("six_baihua").innerHTML = zhouyi_text[read_daima].six_baihua;
+	document.getElementById("six_xiang").innerHTML = zhouyi_text[read_daima].six_xiang;
+	document.getElementById("six_xiang_baihua").innerHTML = zhouyi_text[read_daima].six_xiang_baihua;
+	document.getElementById("gdyd_six").innerHTML = zhouyi_text[read_daima].gdyd_six;
+	document.getElementById("yong").innerHTML = zhouyi_text[read_daima].yong;
+	document.getElementById("yong_baihua").innerHTML = zhouyi_text[read_daima].yong_baihua;
+	document.getElementById("wenyan").innerHTML = zhouyi_text[read_daima].wenyan;
+	document.getElementById("wenyan_baihua").innerHTML = zhouyi_text[read_daima].wenyan_baihua;
+	document.getElementById("shiyi").innerHTML = zhouyi_text[read_daima].text;
+	document.getElementById("shiyi_baihua").innerHTML = zhouyi_text[read_daima].text_baihua;
+}
